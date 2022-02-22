@@ -17,13 +17,13 @@ def callback(data):
 def cmd_vel_pub():
     global dead_man
     global dead_man_index
-    max_lin_speed = rospy.get_param('/odom_calib_cmd/max_lin_speed', 0.0)
-    min_lin_speed = rospy.get_param('/odom_calib_cmd/min_lin_speed', 0.0)
-    lin_step = rospy.get_param('/odom_calib_cmd/lin_step', 0.0)
-    max_ang_speed = rospy.get_param('/odom_calib_cmd/max_ang_speed', 0.0)
-    ang_steps = rospy.get_param('/odom_calib_cmd/ang_steps', 0.0)
-    step_len = rospy.get_param('/odom_calib_cmd/step_len', 0.0)
-    dead_man_index = rospy.get_param('/odom_calib_cmd/dead_man_index', 0.0)
+    max_lin_speed = rospy.get_param('/donut_calibration/max_lin_speed', 0.0)
+    min_lin_speed = rospy.get_param('/donut_calibration/min_lin_speed', 0.0)
+    lin_step = rospy.get_param('/donut_calibration/lin_step', 0.0)
+    max_ang_speed = rospy.get_param('/donut_calibration/max_ang_speed', 0.0)
+    ang_steps = rospy.get_param('/donut_calibration/ang_steps', 0.0)
+    step_len = rospy.get_param('/donut_calibration/step_len', 0.0)
+    dead_man_index = rospy.get_param('/donut_calibration/dead_man_index', 0.0)
 
     ang_inc = 0
     step_t = 0
@@ -112,7 +112,7 @@ def calib_switch_off():
 
 if __name__ == '__main__':
     try:
-        rospy.init_node('odom_calib_cmd', anonymous=True)
+        rospy.init_node('donut_calibration', anonymous=True)
         calib_switch_on()
         cmd_vel_pub()
         calib_switch_off()
